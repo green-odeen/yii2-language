@@ -21,7 +21,7 @@ class Module extends BaseModule implements BootstrapInterface {
 			[
 				'class' => 'yii\web\UrlRule',
 				'route' => $this->id . '/default/index',
-				'pattern' => $this->id . '/<category:[\w\-]+>',
+				'pattern' => $this->id . '/<category:[\w\-?]+>',
 				'suffix' => false
 			]
 		], false);
