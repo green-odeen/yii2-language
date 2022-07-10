@@ -1,0 +1,31 @@
+{
+  "name": "green-odeen/yii2-language",
+  "description": "Language file editor for Yii2",
+  "keywords": ["yii2", "yii2-language", "language", "localization", "internationalization", "i18n"],
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+	{
+	  "name": "Ivan Grigorev",
+	  "email": "ig@redream.ru",
+	  "homepage": "https://igrigorev.com",
+      "role": "Developer"
+	}
+  ],
+  "minimum-stability": "dev",
+  "require": {
+	"php": ">=5.6.0",
+	"yiisoft/yii2": "^2.0.0",
+    "yiisoft/yii2-bootstrap": "^2.0.0"
+  },
+  "autoload": {
+	"psr-4": {
+	  "greenodeen\\language\\": ""
+	}
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
