@@ -32,23 +32,23 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="panel-body">
 				<?php
 				$form = ActiveForm::begin([
-				    'enableAjaxValidation' => false,
-				    'enableClientValidation' => false,
-				    'layout' => 'horizontal',
-				    'fieldConfig' => [
-				        'horizontalCssClasses' => [
-					        'offset' => 'offset-sm-3',
-					        'label' => 'col-sm-3 col-form-label',
-					        'wrapper' => 'col-sm-9',
-					        'error' => ''
-				        ]
-				    ]
+					'enableAjaxValidation' => false,
+					'enableClientValidation' => false,
+					'layout' => 'horizontal',
+					'fieldConfig' => [
+						'horizontalCssClasses' => [
+							'offset' => 'offset-sm-3',
+							'label' => 'col-sm-3 col-form-label',
+							'wrapper' => 'col-sm-9',
+							'error' => ''
+						]
+					]
 				]);
 				foreach ($model->attributeLabels() as $attribute => $label) {
-	                echo $form->field($model, $attribute)->widget(MultiLangInput::class, [
-                        'languages' => $model->languages
-	                ]);
-	            }
+					echo $form->field($model, $attribute)->widget(MultiLangInput::class, [
+						'languages' => $model->languages
+					]);
+				}
 				
 				echo Html::submitButton('Save', ['class' => 'btn btn-primary']);
 				ActiveForm::end();

@@ -29,29 +29,29 @@ class DefaultController extends Controller {
 	 * @param string|null $category
 	 * @return string|\yii\web\Response
 	 */
-    public function actionIndex($category = null) {
-    	$categories = $this->service->getCategories();
-    	if($category === null) {
-    		$category = reset($categories);
-	    }
-    	if(!in_array($category, $categories) || empty($messages = $this->service->getMessages($category))) {
-    		throw new NotFoundHttpException();
-	    }
-    	$model = new Language($messages);
+	public function actionIndex($category = null) {
+		$categories = $this->service->getCategories();
+		if($category === null) {
+			$category = reset($categories);
+		}
+		if(!in_array($category, $categories) || empty($messages = $this->service->getMessages($category))) {
+			throw new NotFoundHttpException();
+		}
+		$model = new Language($messages);
 
-        if ($model->load(Yii::$app->request->post())) {
-        	if($this->service->saveFromModel($category, $model)) {
-		        Yii::$app->session->setFlash('success', 'Saved');
-		        return $this->refresh();
-	        } else {
-		        Yii::$app->session->setFlash('error', 'Error');
-	        }
-        }
+		if ($model->load(Yii::$app->request->post())) {
+			if($this->service->saveFromModel($category, $model)) {
+				Yii::$app->session->setFlash('success', 'Saved');
+				return $this->refresh();
+			} else {
+				Yii::$app->session->setFlash('error', 'Error');
+			}
+		}
 
-        return $this->render('index', [
-            'categories' => $this->service->getCategories(),
-            'category' => $category,
-            'model' => $model
-        ]);
-    }
+		return $this->render('index', [
+			'categories' => $this->service->getCategories(),
+			'category' => $category,
+			'model' => $model
+		]);
+	}
 }
